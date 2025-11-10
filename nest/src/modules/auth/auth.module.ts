@@ -1,9 +1,8 @@
 import { Module, Injectable } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
-import { JwtModule } from '@nestjs/jwt';
+import { JwtModule, JwtService } from '@nestjs/jwt';
 import { AuthGuard, PassportModule } from '@nestjs/passport';
-
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/modules/user/user.model';
 import { UserRepository } from 'src/modules/user/user.repo';
@@ -26,6 +25,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {}
   providers: [
     AuthService,
     UserRepository,
+    JwtService,
     { provide: APP_GUARD, useClass: JwtAuthGuard },
   ],
   controllers: [AuthController],

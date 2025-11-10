@@ -14,6 +14,9 @@ export class authRepo {
   @Column()
   filename: string;
 
+   @Column()
+  email: string;
+
   @Column('int')
   views: number;
 
