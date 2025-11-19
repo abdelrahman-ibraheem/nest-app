@@ -4,7 +4,7 @@ import { UserServices } from '../user/user.service';
 import { JwtService } from '@nestjs/jwt';
 import { UserRepository } from 'src/modules/user/user.repo';
 import * as bcrypt from 'bcrypt';
-import { User } from 'src/modules/user/user.model';
+import { User } from 'src/models/user.model';
 import { HashService } from 'src/comoon/utils/hash';
 import { LoginDto } from 'src/modules/auth/auth_dto/signup.dto';
 interface IUserServices {

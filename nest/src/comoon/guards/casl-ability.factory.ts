@@ -6,7 +6,7 @@ import {
   InferSubjects,
   PureAbility,
 } from '@casl/ability';
-import { User } from '../../modules/user/user.model';
+import { User } from '../../models/user.model';
 
 export enum Action {
   Manage = 'manage',

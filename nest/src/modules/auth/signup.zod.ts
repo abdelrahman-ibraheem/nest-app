@@ -1,5 +1,5 @@
 import { object, z } from 'zod';
-import { Gender, Role } from '../user/user.model';
+import { Gender, Role } from '../../models/user.model';
 
 export const SignupSchema =z.strictObject( {
     email:z.email(),

@@ -4,7 +4,7 @@ import { AuthController } from './auth.controller';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { AuthGuard, PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { User } from 'src/modules/user/user.model';
+import { User, UserModel } from 'src/models/user.model';
 import { UserRepository } from 'src/modules/user/user.repo';
 import { APP_GUARD } from '@nestjs/core';
 
@@ -18,6 +18,7 @@ export class JwtAuthGuard extends AuthGuard('jwt') {}
 
 @Module({
   imports: [
+    UserModel,
     PassportModule,
     JwtModule.register({ secret: jwtConstants.secret, signOptions: { expiresIn: jwtConstants.expiresIn } }),
     TypeOrmModule.forFeature([User]),

@@ -1,7 +1,7 @@
 import { Body, Controller, Post, HttpCode, HttpStatus, UseGuards, Get, Request, UsePipes, UseInterceptors } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { UserServices } from 'src/modules/user/user.service';
-import { User } from 'src/modules/user/user.model';
+import { User } from 'src/models/user.model';
 import { AuthGuard } from './auth.guards';
 import { zodValidationPipe } from 'src/comoon/pipes/zod.pipe';
 import { loginSchema } from './signup.zod';
@@ -29,6 +29,7 @@ export class AuthController {
   @UseInterceptors(LoggerInterceptor)
   @UseGuards(AuthGuard)
   @Get('profile')
+    
   getProfile(@Request() req) {
     return req.user;
   }
